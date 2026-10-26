@@ -134,6 +134,4 @@ Raw data source: [Cricsheet Downloads](https://cricsheet.org/downloads/).
 
 Cricsheet data is provided under the Open Data Commons Attribution License. Please consult the [Cricsheet licensing information](https://cricsheet.org/about/) and comply with the applicable attribution requirements when redistributing the data.
 
-## License
 
-A license has not yet been specified. Add an appropriate license before presenting the project as open source.
