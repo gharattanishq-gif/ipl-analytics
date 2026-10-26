@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>IPL Player Comparison</title>
+
+    <!-- Flask CSS Path -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/compare.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand">IPL Analytics</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/player">Player Analysis</a>
+                <a href="/compare" class="active">Player Comparison</a>
+                <a href="/team">Team Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- MAIN PAGE -->
+
+    <main class="main-container">
+
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <p class="eyebrow">
+                PLAYER INTELLIGENCE PLATFORM
+            </p>
+
+            <h1>
+                Player Comparison
+            </h1>
+
+            <p class="subtitle">
+                Compare two IPL players across an equal number of
+                seasons using detailed batting and bowling statistics.
+            </p>
+
+        </section>
+
+
+        <!-- COMPARISON CARD -->
+
+        <section class="comparison-card">
+
+
+            <!-- PLAYER SELECTION -->
+
+            <div class="player-selection-grid">
+
+
+                <!-- PLAYER A -->
+
+                <div class="player-selection player-a-selection">
+
+                    <label for="playerASearch">
+                        PLAYER A
+                    </label>
+
+                    <div class="search-container">
+
+                        <input
+                            type="text"
+                            id="playerASearch"
+                            placeholder="Choose Player A..."
+                            autocomplete="off"
+                        >
+
+                        <div
+                            id="playerASearchResults"
+                            class="search-results"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VS DIVIDER -->
+
+                <div class="versus-divider">
+
+                    <span>
+                        VS
+                    </span>
+
+                </div>
+
+
+                <!-- PLAYER B -->
+
+                <div class="player-selection player-b-selection">
+
+                    <label for="playerBSearch">
+                        PLAYER B
+                    </label>
+
+                    <div class="search-container">
+
+                        <input
+                            type="text"
+                            id="playerBSearch"
+                            placeholder="Choose Player B..."
+                            autocomplete="off"
+                        >
+
+                        <div
+                            id="playerBSearchResults"
+                            class="search-results"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- COMPARISON CONFIGURATION -->
+
+            <div class="comparison-configuration">
+
+
+                <!-- SEASONS -->
+
+                <button
+                    type="button"
+                    id="openSeasonSelection"
+                    class="configuration-button"
+                >
+
+                    <span class="configuration-number">
+                        1
+                    </span>
+
+                    <span class="configuration-content">
+
+                        <strong>
+                            Seasons
+                        </strong>
+
+                        <small id="seasonSelectionStatus">
+                            Select equal comparison periods
+                        </small>
+
+                    </span>
+
+                    <span class="configuration-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- COMPARISON TYPE -->
+
+                <button
+                    type="button"
+                    id="openComparisonType"
+                    class="configuration-button"
+                >
+
+                    <span class="configuration-number">
+                        2
+                    </span>
+
+                    <span class="configuration-content">
+
+                        <strong>
+                            Comparison Type
+                        </strong>
+
+                        <small id="comparisonTypeStatus">
+                            Batting, Bowling, or Both
+                        </small>
+
+                    </span>
+
+                    <span class="configuration-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+                <!-- COMPARE -->
+
+                <button
+                    type="button"
+                    id="comparePlayers"
+                    class="compare-button"
+                    disabled
+                >
+
+                    <span class="configuration-number">
+                        3
+                    </span>
+
+                    <span class="compare-button-text">
+                        Compare Players
+                    </span>
+
+                    <span class="configuration-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <!-- SELECTION MESSAGE -->
+
+            <p
+                id="selectionMessage"
+                class="selection-message"
+            >
+                Select two players to begin configuring your comparison.
+            </p>
+
+
+            <!-- COMPARISON NOTE -->
+
+            <div class="comparison-note">
+
+                <span class="note-icon">
+                    i
+                </span>
+
+                <p>
+                    To maintain a fair comparison, both players must
+                    be analysed across the same number of IPL seasons.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+    <!-- SEASON SELECTION MODAL -->
+
+<div
+    id="seasonModal"
+    class="selection-modal hidden"
+>
+
+    <div class="selection-modal-content">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="selection-modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    COMPARISON PERIOD
+                </p>
+
+                <h2>
+                    Select Seasons
+                </h2>
+
+                <p class="modal-description">
+                    Select an equal number of seasons for both players.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                id="closeSeasonModal"
+                class="modal-close-button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- PLAYER SEASON COLUMNS -->
+
+        <div class="season-selection-grid">
+
+
+            <!-- PLAYER A SEASONS -->
+
+            <section class="season-player-panel player-a-season-panel">
+
+                <div class="season-player-header">
+
+                    <p class="season-player-label">
+                        PLAYER A
+                    </p>
+
+                    <h3 id="seasonPlayerAName">
+                        Player A
+                    </h3>
+
+                    <p
+                        id="playerASeasonCount"
+                        class="season-count"
+                    >
+                        0 seasons selected
+                    </p>
+
+                </div>
+
+                <div
+                    id="playerASeasonGrid"
+                    class="season-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- PLAYER B SEASONS -->
+
+            <section class="season-player-panel player-b-season-panel">
+
+                <div class="season-player-header">
+
+                    <p class="season-player-label">
+                        PLAYER B
+                    </p>
+
+                    <h3 id="seasonPlayerBName">
+                        Player B
+                    </h3>
+
+                    <p
+                        id="playerBSeasonCount"
+                        class="season-count"
+                    >
+                        0 seasons selected
+                    </p>
+
+                </div>
+
+                <div
+                    id="playerBSeasonGrid"
+                    class="season-grid"
+                ></div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- VALIDATION MESSAGE -->
+
+        <div
+            id="seasonValidationMessage"
+            class="season-validation-message"
+        >
+            Both players must have the same number of seasons selected.
+        </div>
+
+
+        <!-- MODAL ACTIONS -->
+
+        <div class="selection-modal-actions">
+
+            <button
+                type="button"
+                id="cancelSeasonSelection"
+                class="secondary-modal-button"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                id="confirmSeasonSelection"
+                class="primary-modal-button"
+                disabled
+            >
+                Select Seasons
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<!-- COMPARISON TYPE MODAL -->
+
+<div
+    id="comparisonTypeModal"
+    class="selection-modal hidden"
+>
+
+    <div class="selection-modal-content comparison-type-modal-content">
+
+
+        <!-- MODAL HEADER -->
+
+        <div class="selection-modal-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    PERFORMANCE CATEGORY
+                </p>
+
+                <h2>
+                    Select Comparison Type
+                </h2>
+
+                <p class="modal-description">
+                    Choose the performance category to compare
+                    between the selected players.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                id="closeComparisonTypeModal"
+                class="modal-close-button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- COMPARISON TYPE OPTIONS -->
+
+        <div class="comparison-type-options">
+
+
+            <!-- BATTING -->
+
+            <button
+                type="button"
+                class="comparison-type-option batting-type-option"
+                data-comparison-type="batting"
+            >
+
+                <div class="comparison-type-number">
+                    01
+                </div>
+
+                <div class="comparison-type-content">
+
+                    <h3>
+                        Batting Metrics
+                    </h3>
+
+                    <p>
+                        Compare both players using batting
+                        performance statistics.
+                    </p>
+
+                    <span>
+                        Average • Strike Rate • Runs per Innings
+                        • Boundary Frequency • Dot Ball Percentage
+                        • Team Contribution
+                    </span>
+
+                </div>
+
+            </button>
+
+
+            <!-- BOWLING -->
+
+            <button
+                type="button"
+                class="comparison-type-option bowling-type-option"
+                data-comparison-type="bowling"
+            >
+
+                <div class="comparison-type-number">
+                    02
+                </div>
+
+                <div class="comparison-type-content">
+
+                    <h3>
+                        Bowling Metrics
+                    </h3>
+
+                    <p>
+                        Compare both players using bowling
+                        performance statistics.
+                    </p>
+
+                    <span>
+                        Bowling Average • Economy Rate • Wickets
+                        per Innings • Bowling Strike Rate • Dot Ball
+                        Percentage • Team Wicket Contribution
+                    </span>
+
+                </div>
+
+            </button>
+
+
+            <!-- BOTH -->
+
+            <button
+                type="button"
+                class="comparison-type-option both-type-option"
+                data-comparison-type="both"
+            >
+
+                <div class="comparison-type-number">
+                    03
+                </div>
+
+                <div class="comparison-type-content">
+
+                    <h3>
+                        Both
+                    </h3>
+
+                    <p>
+                        Compare complete batting and bowling
+                        performance.
+                    </p>
+
+                    <span>
+                        The comparison report will provide a toggle
+                        between batting and bowling metrics.
+                    </span>
+
+                </div>
+
+            </button>
+
+
+        </div>
+
+
+        <!-- MODAL ACTIONS -->
+
+        <div class="selection-modal-actions">
+
+            <button
+                type="button"
+                id="cancelComparisonType"
+                class="secondary-modal-button"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                id="confirmComparisonType"
+                class="primary-modal-button"
+                disabled
+            >
+                Select Type
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+    <!-- Flask JavaScript Path -->
+
+    <script
+        src="{{ url_for('static', filename='js/compare.js') }}"
+    ></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>IPL Analytics</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/index.css') }}"
+    >
+  
+
+</head>
+
+
+<body>
+
+
+    <!-- ======================================================
+         NAVBAR
+    ======================================================= -->
+
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="brand">
+            IPL Analytics
+        </a>
+
+        <div class="nav-links">
+            <a href="/" class="active">Home</a>
+            <a href="/player">Player Analysis</a>
+            <a href="/compare">Player Comparison</a>
+            <a href="/team">Team Analysis</a>
+        </div>
+    </div>
+</nav>
+
+
+
+    <!-- ======================================================
+         HERO
+    ======================================================= -->
+
+    <main>
+
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    IPL DATA INTELLIGENCE
+                </span>
+
+
+                <h1>
+                    Understand the IPL
+                    <span>
+                        Beyond the Scorecard.
+                    </span>
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Explore player performance, compare
+                    players across seasons, and uncover
+                    how IPL teams evolve over time through
+                    data-driven analysis.
+
+                </p>
+
+
+                <a
+                    href="#analytics"
+                    class="hero-button"
+                >
+
+                    Explore Analytics
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- Decorative analytics visual -->
+
+            <div class="hero-visual">
+
+                <div class="visual-grid"></div>
+
+
+                <div class="floating-card card-one">
+
+                    <span>
+                        PLAYER INDEX
+                    </span>
+
+                    <strong>
+                        87.4
+                    </strong>
+
+                    <small>
+                        Performance Score
+                    </small>
+
+                </div>
+
+
+                <div class="floating-card card-two">
+
+                    <span>
+                        TEAM STRENGTH
+                    </span>
+
+                    <div class="mini-bars">
+
+                        <i style="height: 55%"></i>
+                        <i style="height: 72%"></i>
+                        <i style="height: 64%"></i>
+                        <i style="height: 88%"></i>
+                        <i style="height: 76%"></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="floating-card card-three">
+
+                    <span>
+                        SEASONS
+                    </span>
+
+                    <strong>
+                        2008–2026
+                    </strong>
+
+                    <small>
+                        IPL Performance Data
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ANALYTICS SECTION
+        =================================================== -->
+
+        <section
+            id="analytics"
+            class="analytics-section"
+        >
+
+            <div class="section-heading">
+
+                <span class="section-kicker">
+                    EXPLORE
+                </span>
+
+
+                <h2>
+                    Choose Your Analysis
+                </h2>
+
+
+                <p>
+                    Select an analytical view and dive
+                    into the data.
+                </p>
+
+            </div>
+
+
+
+            <div class="analytics-grid">
+
+
+                <!-- ==========================================
+                     PLAYER ANALYSIS
+                =========================================== -->
+
+                <a
+                    href="/player"
+                    class="analysis-card"
+                >
+
+                    <div class="card-top">
+
+                        <div class="card-icon player-icon">
+                            P
+                        </div>
+
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <span class="card-label">
+                            PLAYER ANALYSIS
+                        </span>
+
+
+                        <h3>
+                            Explore Individual Performance
+                        </h3>
+
+
+                        <p>
+
+                            Analyse a player's batting and
+                            bowling performance across
+                            selected IPL seasons.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-footer">
+
+                        <span>
+                            Explore Player
+                        </span>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- ==========================================
+                     PLAYER COMPARISON
+                =========================================== -->
+
+                <a
+                    href="/compare"
+                    class="analysis-card"
+                >
+
+                    <div class="card-top">
+
+                        <div class="card-icon comparison-icon">
+                            C
+                        </div>
+
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <span class="card-label">
+                            PLAYER COMPARISON
+                        </span>
+
+
+                        <h3>
+                            Compare Players
+                        </h3>
+
+
+                        <p>
+
+                            Compare two players across
+                            performance indices and
+                            season-wise statistics.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-footer">
+
+                        <span>
+                            Compare Players
+                        </span>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- ==========================================
+                     TEAM ANALYSIS
+                =========================================== -->
+
+                <a
+                    href="/team"
+                    class="analysis-card"
+                >
+
+                    <div class="card-top">
+
+                        <div class="card-icon team-icon">
+                            T
+                        </div>
+
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <span class="card-label">
+                            TEAM ANALYSIS
+                        </span>
+
+
+                        <h3>
+                            Analyse Team Evolution
+                        </h3>
+
+
+                        <p>
+
+                            Explore team performance,
+                            contribution patterns, and
+                            how departments evolve across
+                            seasons.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-footer">
+
+                        <span>
+                            Analyse Teams
+                        </span>
+
+                        <span class="card-arrow">
+                            →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FOOTER STATEMENT
+        =================================================== -->
+
+        <section class="closing-section">
+
+            <div class="closing-line"></div>
+
+
+            <p>
+                Built to turn IPL data into meaningful
+                performance insights.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ======================================================
+         FOOTER
+    ======================================================= -->
+
+    <footer>
+
+        <span>
+            IPL Analytics
+        </span>
+
+        <span>
+            Data • Performance • Insight
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>

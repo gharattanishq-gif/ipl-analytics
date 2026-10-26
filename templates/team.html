@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Team Analytics</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/team.css') }}">
+
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a href="/" class="brand">
+                IPL Analytics
+            </a>
+
+            <div class="nav-links">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="/player">
+                    Player Analysis
+                </a>
+
+                <a href="/compare">
+                    Player Comparison
+                </a>
+
+                <a href="/team" class="active">
+                    Team Analysis
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main class="team-container">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <p class="eyebrow">
+                TEAM INTELLIGENCE PLATFORM
+            </p>
+
+            <h1>
+                Team Analytics
+            </h1>
+
+            <p class="subtitle">
+                Explore franchise performance across IPL seasons,
+                analyse team statistics, contribution patterns,
+                dependency on key performers, and season-wise evolution.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             TEAM SELECTION
+        ====================================================== -->
+
+        <section class="team-selection">
+
+            <h2>
+                Choose Your Team
+            </h2>
+
+            <div id="team-grid">
+
+                <!-- Teams are loaded dynamically by team.js -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         TEAM + SEASON SELECTION MODAL
+    ========================================================== -->
+
+    <div id="team-modal"
+         class="modal"
+         style="display: none;">
+
+        <div class="modal-content">
+
+            <!-- SELECTED TEAM -->
+
+            <h2 id="selected-team-name">
+                TEAM NAME
+            </h2>
+
+
+            <hr>
+
+
+            <!-- SEASONS -->
+
+            <h3>
+                Select Seasons
+            </h3>
+
+            <div id="season-list">
+
+                <!-- Seasons are loaded dynamically -->
+
+            </div>
+
+
+            <!-- SELECTION COUNT -->
+
+            <p id="season-count">
+                0 Seasons Selected
+            </p>
+
+
+            <!-- SELECTION PREVIEW -->
+
+            <p id="selection-preview">
+                No seasons selected
+            </p>
+
+
+            <!-- MODAL ACTIONS -->
+
+            <div class="modal-buttons">
+
+                <button id="change-team"
+                        type="button">
+
+                    Choose Another Team
+
+                </button>
+
+
+                <button id="clear-seasons"
+                        type="button">
+
+                    Clear Seasons
+
+                </button>
+
+            </div>
+
+
+            <!-- ANALYSE -->
+
+            <button id="analyse-team"
+                    type="button"
+                    disabled>
+
+                Analyse Team
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="{{ url_for('static', filename='js/team.js') }}"></script>
+
+</body>
+
+</html>

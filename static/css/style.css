@@ -1,0 +1,593 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #111111;
+    color: #ffffff;
+}
+
+/* NAVBAR */
+
+/* ==========================================================
+   NAVBAR — MATCH index.css AND style.css
+========================================================== */
+
+.navbar {
+    box-sizing: border-box;
+    height: 72px;
+    background: #111111;
+    border-bottom: 1px solid #2a2a2a;
+    position: relative;
+    z-index: 100;
+    font-family: Inter, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", sans-serif;
+}
+
+.nav-container {
+    box-sizing: border-box;
+    max-width: 1280px;
+    height: 100%;
+    margin: auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 750;
+    letter-spacing: -0.4px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #2563eb;
+}
+
+/* Responsive navbar — match index.css */
+
+@media (max-width: 1000px) {
+    .nav-links {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        height: auto;
+    }
+
+    .nav-container {
+        padding: 18px 22px;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links a {
+        font-size: 11px;
+    }
+}
+
+/* MAIN PAGE */
+
+.main-container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 70px 0;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.eyebrow {
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #a7adb8;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.6;
+    color: #a7adb8;
+    font-size: 17px;
+}
+
+/* MAIN CARD */
+
+.analytics-card {
+    background: #111111;
+    border-radius: 12px;
+    padding: 40px;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.section {
+    margin-bottom: 35px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* PLAYER SEARCH */
+
+.search-container {
+    position: relative;
+}
+
+#playerSearch {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #3a3a3a;
+    font-size: 16px;
+    outline: none;
+}
+
+#playerSearch:focus {
+    border-color: #334155;
+}
+
+.search-results {
+    position: absolute;
+    width: 100%;
+    background: #111111;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    margin-top: 5px;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+}
+
+.search-result {
+    padding: 14px;
+    cursor: pointer;
+}
+
+.search-result:hover {
+    background: #202020;
+}
+
+/* SELECTED PLAYER */
+
+.selected-player-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #171717;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 35px;
+}
+
+.hidden {
+    display: none;
+}
+
+.player-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.player-info h3 {
+    margin-bottom: 5px;
+}
+
+.player-info p {
+    color: #a7adb8;
+}
+
+/* QUICK FILTERS */
+
+.quick-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-btn {
+    padding: 11px 18px;
+    border: 1px solid #3a3a3a;
+    background: #111111;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background: #202020;
+}
+
+.filter-btn.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* SEASONS */
+
+.season-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #a7adb8;
+}
+
+.season-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.season-button {
+    padding: 12px;
+    border: 1px solid #3a3a3a;
+    background: #111111;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.season-button:hover {
+    background: #202020;
+}
+
+.season-button.selected {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* GENERATE BUTTON */
+
+.generate-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.generate-button:disabled {
+    background: #3a3a3a;
+    cursor: not-allowed;
+}
+
+.selection-message {
+    text-align: center;
+    margin-top: 12px;
+    color: #a7adb8;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .analytics-card {
+        padding: 25px;
+    }
+
+    .season-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+/* ==========================================================
+   PLAYER ANALYSIS — DARK THEME
+   Self-contained page styling; no global.css required.
+========================================================== */
+
+html,
+body {
+    background: #111111;
+    color: #ffffff;
+}
+
+.navbar,
+.main-container,
+.analytics-card {
+    background: #111111;
+}
+
+#playerSearch,
+.search-results,
+.filter-btn,
+.season-button {
+    color: #ffffff;
+    background: #111111;
+}
+
+#playerSearch::placeholder {
+    color: #858b95;
+}
+
+.search-result {
+    color: #ffffff;
+}
+
+.search-result:hover,
+.filter-btn:hover,
+.season-button:hover {
+    background: #202020;
+}
+
+.selected-player-card {
+    color: #ffffff;
+    background: #171717;
+    border: 1px solid #2a2a2a;
+}
+
+.player-info p {
+    color: #a7adb8;
+}
+
+.text-button {
+    color: #a7adb8;
+}
+
+.generate-button:disabled {
+    color: #d8dce2;
+    background: #3a3a3a;
+}
+/* ==================================================
+   SHARED IPL ANALYTICS BACKGROUND
+================================================== */
+
+body {
+    background:
+        radial-gradient(
+            ellipse 65% 42% at 50% 0%,
+            rgba(96, 165, 250, 0.075),
+            transparent 75%
+        ),
+        #111111;
+    color: #f5f5f5;
+}
+
+/* ==========================================================
+   PLAYER PAGE — VISIBLE SHARED GRADIENT + HERO EYEBROW LINES
+   Overrides the opaque page backgrounds above so the glow can show.
+========================================================== */
+
+html,
+body {
+    min-height: 100%;
+    background-color: #111111;
+}
+
+body {
+    background:
+        radial-gradient(ellipse 72% 48% at 50% 0%,
+            rgba(96, 165, 250, 0.14) 0%,
+            rgba(96, 165, 250, 0.055) 42%,
+            transparent 78%),
+        #111111;
+    color: #f5f5f5;
+}
+
+/* Keep the main page wrapper transparent; otherwise it hides the body glow. */
+.main-container {
+    background: transparent !important;
+    position: relative;
+    isolation: isolate;
+}
+
+/* A subtle glass-like card lets a hint of the background gradient through. */
+.analytics-card {
+    background: rgba(17, 17, 17, 0.78) !important;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Add the short blue accent lines on both sides of the hero eyebrow. */
+.hero .eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 18px;
+    color: #b8c8dc;
+}
+
+.hero .eyebrow::before,
+.hero .eyebrow::after {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 1px;
+    flex: 0 0 18px;
+    background: linear-gradient(90deg, transparent, #60a5fa);
+    opacity: 0.9;
+}
+
+.hero .eyebrow::after {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 650px) {
+    body {
+        background:
+            radial-gradient(ellipse 110% 35% at 50% 0%,
+                rgba(96, 165, 250, 0.12),
+                transparent 78%),
+            #111111;
+    }
+
+    .hero .eyebrow {
+        gap: 8px;
+        letter-spacing: 1.4px;
+        font-size: 11px;
+    }
+
+    .hero .eyebrow::before,
+    .hero .eyebrow::after {
+        width: 12px;
+        flex-basis: 12px;
+    }
+}
+
+/* ==========================================================
+   PLAYER ANALYSIS — SHARED GRADIENT & PREMIUM SURFACE
+   Append at the bottom of style.css
+========================================================== */
+/* ==========================================================
+   PLAYER ANALYSIS — FINAL SURFACE OVERRIDE
+   Matches the other pages' subtle charcoal gradient
+========================================================== */
+
+html,
+body {
+    min-height: 100%;
+    background-color: #111111;
+}
+
+body {
+    background:
+        radial-gradient(
+            ellipse 75% 45% at 50% 0%,
+            rgba(148, 163, 184, 0.055) 0%,
+            transparent 72%
+        ),
+        #111111;
+    color: #f5f5f5;
+}
+
+/* Keep the page wrapper from hiding the background gradient */
+.main-container {
+    background: transparent !important;
+}
+
+/* Give the player form its own elevated charcoal surface */
+.analytics-card {
+    background:
+        linear-gradient(
+            180deg,
+            #191b1f 0%,
+            #16181b 55%,
+            #131416 100%
+        ) !important;
+    border: 1px solid #2a2d32;
+    border-radius: 18px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+
+/* ==========================================================
+   PLAYER ANALYSIS — RESTORED PREMIUM GRADIENT
+========================================================== */
+
+/* Visible but restrained glow behind the page */
+html {
+    min-height: 100%;
+    background-color: #111111;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            ellipse 85% 55% at 50% 0%,
+            rgba(96, 165, 250, 0.11) 0%,
+            rgba(96, 165, 250, 0.035) 42%,
+            transparent 76%
+        ),
+        #111111 !important;
+    color: #f5f5f5;
+}
+
+/* Let the page gradient remain visible around the form */
+.main-container {
+    background: transparent !important;
+}
+
+/* Keep the panel neutral charcoal, not blue */
+.analytics-card {
+    background:
+        linear-gradient(
+            180deg,
+            #191b1f 0%,
+            #16181b 55%,
+            #131416 100%
+        ) !important;
+    border: 1px solid #2a2d32;
+    border-radius: 18px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.22);
+}
+

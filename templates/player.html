@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>IPL Player Analytics</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand" style="text-decoration: none;">IPL Analytics</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/player" class="active">Player Analysis</a>
+                <a href="/compare">Player Comparison</a>
+                <a href="/team">Team Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- MAIN PAGE -->
+
+    <main class="main-container">
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <p class="eyebrow">
+                PLAYER INTELLIGENCE PLATFORM
+            </p>
+
+            <h1>
+                IPL Player Analytics
+            </h1>
+
+            <p class="subtitle">
+                Analyse player performance across multiple IPL seasons
+                and generate detailed performance reports.
+            </p>
+
+        </section>
+
+
+        <!-- PLAYER ANALYTICS CARD -->
+
+        <section class="analytics-card">
+
+
+            <!-- PLAYER SEARCH -->
+
+            <div class="section">
+
+                <label for="playerSearch">
+                    SELECT PLAYER
+                </label>
+
+                <div class="search-container">
+
+                    <input
+                        type="text"
+                        id="playerSearch"
+                        placeholder="Search for an IPL player..."
+                        autocomplete="off"
+                    >
+
+                    <div
+                        id="searchResults"
+                        class="search-results"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELECTED PLAYER CARD -->
+
+            <div
+                id="selectedPlayerCard"
+                class="selected-player-card hidden"
+            >
+
+                <div class="player-avatar">
+
+                    <span id="playerInitials"></span>
+
+                </div>
+
+                <div class="player-info">
+
+                    <h3 id="selectedPlayerName"></h3>
+
+                    <p id="selectedPlayerRole"></p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANALYSIS PERIOD -->
+
+            <div class="section">
+
+                <label>
+                    SELECT ANALYSIS PERIOD
+                </label>
+
+                <div class="quick-filters">
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="career"
+                    >
+                        Entire Career
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="5"
+                    >
+                        Last 5 Seasons
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="3"
+                    >
+                        Last 3 Seasons
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="custom"
+                    >
+                        Custom
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEASON SELECTION -->
+
+            <div class="section">
+
+                <div class="season-header">
+
+                    <label>
+                        SEASONS
+                    </label>
+
+                    <button
+                        type="button"
+                        id="clearSeasons"
+                        class="text-button"
+                    >
+                        Clear Selection
+                    </button>
+
+                </div>
+
+                <div
+                    id="seasonGrid"
+                    class="season-grid"
+                ></div>
+
+            </div>
+
+
+            <!-- GENERATE REPORT BUTTON -->
+
+            <button
+                type="button"
+                id="generateReport"
+                class="generate-button"
+                disabled
+            >
+                Generate Player Report
+            </button>
+
+
+            <!-- SELECTION STATUS -->
+
+            <p
+                id="selectionMessage"
+                class="selection-message"
+            >
+                Select a player and at least one season.
+            </p>
+
+
+        </section>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+
+
+</body>
+
+</html>

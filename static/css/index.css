@@ -1,0 +1,1134 @@
+/* ==========================================================
+   IPL ANALYTICS
+   HOME PAGE
+========================================================== */
+
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #111111;
+
+    color: #ffffff;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==========================================================
+   SHARED SITE NAVBAR
+========================================================== */
+
+.navbar {
+    height: 72px;
+    background: #111111;
+    border-bottom: 1px solid #2a2a2a;
+    position: relative;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1280px;
+    height: 100%;
+    margin: auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 750;
+    letter-spacing: -0.4px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav-links a {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #2563eb;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero {
+    min-height:
+        560px;
+
+    background:
+        #111111;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        70px max(32px, calc((100vw - 1180px) / 2));
+}
+
+
+.hero-content {
+    width:
+        56%;
+
+    position:
+        relative;
+
+    z-index:
+        2;
+}
+
+
+.eyebrow {
+    display:
+        inline-block;
+
+    color:
+        #ffffff;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        22px;
+}
+
+
+.hero h1 {
+    color:
+        #ffffff;
+
+    font-size:
+        clamp(42px, 5vw, 68px);
+
+    line-height:
+        1.04;
+
+    letter-spacing:
+        -2.5px;
+
+    font-weight:
+        800;
+
+    max-width:
+        720px;
+}
+
+
+.hero h1 span {
+    display:
+        block;
+
+    color:
+        #2563eb;
+}
+
+
+.hero-description {
+    margin-top:
+        25px;
+
+    max-width:
+        600px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.75;
+}
+
+
+.hero-button {
+    margin-top:
+        32px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    background:
+        #2563eb;
+
+    color:
+        #ffffff;
+
+    padding:
+        14px 20px;
+
+    border-radius:
+        8px;
+
+    font-size:
+        13px;
+
+    font-weight:
+        750;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.hero-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+}
+
+
+.arrow {
+    font-size:
+        18px;
+
+    line-height:
+        1;
+}
+
+
+/* ==========================================================
+   HERO VISUAL
+========================================================== */
+
+.hero-visual {
+    width:
+        40%;
+
+    height:
+        390px;
+
+    position:
+        relative;
+}
+
+
+.visual-grid {
+    position:
+        absolute;
+
+    inset:
+        20px 0 20px 20px;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.07) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.07) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        42px 42px;
+
+    border:
+        1px solid rgba(17,24,39,0.08);
+
+    border-radius:
+        16px;
+
+    transform:
+        perspective(700px)
+        rotateY(-8deg)
+        rotateX(3deg);
+}
+
+
+/* ==========================================================
+   FLOATING CARDS
+========================================================== */
+
+.floating-card {
+    position:
+        absolute;
+
+    background:
+        #111111;
+
+    border:
+        1px solid #e2e7ef;
+
+    border-radius:
+        12px;
+
+    padding:
+        18px 20px;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,0.35);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+.floating-card span {
+    display:
+        block;
+
+    color:
+        #ffffff;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.5px;
+
+    margin-bottom:
+        8px;
+}
+
+
+.floating-card strong {
+    display:
+        block;
+
+    color:
+        #ffffff;
+
+    font-size:
+        25px;
+
+    font-weight:
+        800;
+}
+
+
+.floating-card small {
+    display:
+        block;
+
+    color:
+        #a7adb8;
+
+    font-size:
+        10px;
+
+    margin-top:
+        5px;
+}
+
+
+.card-one {
+    top:
+        45px;
+
+    left:
+        20px;
+
+    width:
+        180px;
+}
+
+
+.card-two {
+    top:
+        145px;
+
+    right:
+        0;
+
+    width:
+        205px;
+}
+
+
+.card-three {
+    bottom:
+        35px;
+
+    left:
+        80px;
+
+    width:
+        220px;
+}
+
+
+/* ==========================================================
+   MINI BARS
+========================================================== */
+
+.mini-bars {
+    height:
+        52px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    gap:
+        8px;
+
+    margin-top:
+        12px;
+}
+
+
+.mini-bars i {
+    display:
+        block;
+
+    flex:
+        1;
+
+    background:
+        #2563eb;
+
+    border-radius:
+        3px 3px 0 0;
+
+    opacity:
+        0.85;
+}
+
+
+/* ==========================================================
+   ANALYTICS SECTION
+========================================================== */
+
+.analytics-section {
+    max-width:
+        1180px;
+
+    margin:
+        auto;
+
+    padding:
+        85px 32px 60px;
+}
+
+
+.section-heading {
+    margin-bottom:
+        38px;
+}
+
+
+.section-kicker {
+    color:
+        #ffffff;
+
+    font-size:
+        10px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        2px;
+}
+
+
+.section-heading h2 {
+    margin-top:
+        9px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        34px;
+
+    letter-spacing:
+        -1px;
+}
+
+
+.section-heading p {
+    margin-top:
+        9px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        14px;
+}
+
+
+/* ==========================================================
+   ANALYTICS GRID
+========================================================== */
+
+.analytics-grid {
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        20px;
+}
+
+
+/* ==========================================================
+   ANALYSIS CARD
+========================================================== */
+
+.analysis-card {
+    background:
+        #111111;
+
+    border:
+        1px solid #e2e7ef;
+
+    border-radius:
+        14px;
+
+    min-height:
+        340px;
+
+    padding:
+        26px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.analysis-card:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        #3a3a3a;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.40);
+}
+
+
+/* ==========================================================
+   CARD TOP
+========================================================== */
+
+.card-top {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+}
+
+
+.card-icon {
+    width:
+        46px;
+
+    height:
+        46px;
+
+    border-radius:
+        10px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        #1b1b1b;
+
+    color:
+        #d5d9e0;
+
+    font-size:
+        18px;
+
+    font-weight:
+        800;
+}
+
+
+.card-number {
+    color:
+        #b3bdcb;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1px;
+}
+
+
+/* ==========================================================
+   CARD CONTENT
+========================================================== */
+
+.card-content {
+    margin-top:
+        42px;
+
+    flex:
+        1;
+}
+
+
+.card-label {
+    color:
+        #b8bec8;
+
+    font-size:
+        9px;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        1.5px;
+}
+
+
+.card-content h3 {
+    margin-top:
+        10px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        22px;
+
+    line-height:
+        1.25;
+
+    letter-spacing:
+        -0.5px;
+}
+
+
+.card-content p {
+    margin-top:
+        13px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+}
+
+
+/* ==========================================================
+   CARD FOOTER
+========================================================== */
+
+.card-footer {
+    padding-top:
+        22px;
+
+    border-top:
+        1px solid #2a2a2a;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    color:
+        #d5d9e0;
+
+    font-size:
+        12px;
+
+    font-weight:
+        750;
+}
+
+
+.card-arrow {
+    font-size:
+        18px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.analysis-card:hover
+.card-arrow {
+    transform:
+        translateX(5px);
+}
+
+
+/* ==========================================================
+   CLOSING SECTION
+========================================================== */
+
+.closing-section {
+    max-width:
+        1180px;
+
+    margin:
+        0 auto;
+
+    padding:
+        25px 32px 70px;
+}
+
+
+.closing-line {
+    height:
+        1px;
+
+    background:
+        #dfe4eb;
+
+    margin-bottom:
+        24px;
+}
+
+
+.closing-section p {
+    color:
+        #ffffff;
+
+    font-size:
+        12px;
+
+    text-align:
+        center;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer {
+    min-height:
+        80px;
+
+    padding:
+        0 32px;
+
+    background:
+        #111111;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    color:
+        #ffffff;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        0.3px;
+}
+
+
+footer span:first-child {
+    color:
+        #ffffff;
+
+    font-weight:
+        700;
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (
+    max-width: 1000px
+) {
+
+    .nav-links {
+        gap:
+            18px;
+    }
+
+
+    .hero {
+        padding:
+            60px 32px;
+
+        gap:
+            30px;
+    }
+
+
+    .hero h1 {
+        font-size:
+            48px;
+    }
+
+
+    .analytics-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .analysis-card {
+        min-height:
+            290px;
+    }
+
+}
+
+
+@media (
+    max-width: 760px
+) {
+
+    .navbar {
+        height:
+            auto;
+    }
+
+
+    .nav-container {
+        padding:
+            18px 22px;
+
+        flex-direction:
+            column;
+
+        gap:
+            16px;
+    }
+
+
+    .nav-links {
+        width:
+            100%;
+
+        justify-content:
+            center;
+
+        flex-wrap:
+            wrap;
+
+        gap:
+            14px 20px;
+    }
+
+
+    .hero {
+        min-height:
+            auto;
+
+        padding:
+            65px 24px 45px;
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+    }
+
+
+    .hero-content {
+        width:
+            100%;
+    }
+
+
+    .hero h1 {
+        font-size:
+            42px;
+
+        letter-spacing:
+            -1.5px;
+    }
+
+
+    .hero-description {
+        font-size:
+            14px;
+    }
+
+
+    .hero-visual {
+        width:
+            100%;
+
+        height:
+            310px;
+
+        margin-top:
+            20px;
+    }
+
+
+    .analytics-section {
+        padding:
+            60px 22px 40px;
+    }
+
+
+    .section-heading h2 {
+        font-size:
+            28px;
+    }
+
+
+    .closing-section {
+        padding:
+            20px 22px 55px;
+    }
+
+
+    footer {
+        padding:
+            20px 22px;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+    }
+
+}
+
+
+@media (
+    max-width: 480px
+) {
+
+    .nav-links a {
+        font-size:
+            11px;
+    }
+
+
+    .hero h1 {
+        font-size:
+            36px;
+    }
+
+
+    .hero-visual {
+        transform:
+            scale(0.9);
+
+        transform-origin:
+            left center;
+
+        width:
+            110%;
+    }
+
+}
+
+/* ==========================================================
+   ANALYSIS CARDS — SUBTLE IPL BLUE ACCENT
+   Keeps the dark homepage minimal while giving the three
+   analysis cards a more distinctive, premium finish.
+========================================================== */
+
+.analysis-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse 95% 70% at 0% 0%,
+            rgba(37, 99, 235, 0.15) 0%,
+            rgba(37, 99, 235, 0.055) 42%,
+            transparent 78%
+        ),
+        linear-gradient(145deg, #151922 0%, #111318 54%, #111111 100%);
+    border-color: rgba(96, 165, 250, 0.34);
+    box-shadow:
+        0 8px 26px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(147, 197, 253, 0.07);
+}
+
+/* Fine blue highlight across the top edge */
+.analysis-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 22px;
+    right: 22px;
+    height: 2px;
+    border-radius: 0 0 3px 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(96, 165, 250, 0.22) 12%,
+        rgba(59, 130, 246, 0.9) 50%,
+        rgba(96, 165, 250, 0.22) 88%,
+        transparent 100%
+    );
+    opacity: 0.72;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.analysis-card:hover {
+    border-color: rgba(96, 165, 250, 0.62);
+    background:
+        radial-gradient(
+            ellipse 100% 75% at 0% 0%,
+            rgba(37, 99, 235, 0.22) 0%,
+            rgba(37, 99, 235, 0.075) 45%,
+            transparent 80%
+        ),
+        linear-gradient(145deg, #171d2a 0%, #12151c 56%, #111111 100%);
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.38),
+        0 0 26px rgba(37, 99, 235, 0.09),
+        inset 0 1px 0 rgba(147, 197, 253, 0.12);
+}
+
+.analysis-card:hover::before {
+    opacity: 1;
+}
+
+.analysis-card .card-icon {
+    background: rgba(37, 99, 235, 0.16);
+    color: #93c5fd;
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    box-shadow: inset 0 1px 0 rgba(191, 219, 254, 0.06);
+}
+
+.analysis-card .card-number {
+    color: #93c5fd;
+}
+
+.analysis-card .card-label {
+    color: #9fc5ff;
+}
+
+.analysis-card .card-footer {
+    border-top-color: rgba(96, 165, 250, 0.2);
+}
+
+.analysis-card .card-arrow {
+    color: #93c5fd;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .analysis-card,
+    .analysis-card::before,
+    .analysis-card .card-arrow {
+        transition: none;
+    }
+}

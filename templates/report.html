@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>IPL Player Report</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/report.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand">IPL Analytics</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/player" class="active">Player Analysis</a>
+                <a href="/compare">Player Comparison</a>
+                <a href="/team">Team Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- MAIN REPORT -->
+
+    <main class="report-container">
+
+
+        <!-- REPORT HEADER -->
+
+        <section class="report-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    PLAYER PERFORMANCE REPORT
+                </p>
+
+                <h1 id="playerName">
+                    Player Name
+                </h1>
+
+                <p
+                    id="seasonRange"
+                    class="season-range"
+                >
+                    Selected Seasons
+                </p>
+
+            </div>
+
+
+            <a
+                href="/player"
+                class="new-report-button"
+            >
+                ← Select Another Player
+            </a>
+
+        </section>
+
+
+        <!-- REPORT GRID -->
+
+        <section class="report-grid">
+
+
+            <!-- LEFT PANEL -->
+
+            <aside class="player-panel">
+
+
+                <!-- PLAYER IDENTITY -->
+
+                <div class="player-identity">
+
+                    <div class="player-avatar">
+
+                        <span id="playerInitials">
+                            PL
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <h2 id="playerPanelName">
+                            Player Name
+                        </h2>
+
+                        <p>
+                            IPL Player
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SELECTED SEASONS -->
+
+                <div class="panel-section">
+
+                    <p class="panel-label">
+                        ANALYSIS PERIOD
+                    </p>
+
+                    <p id="selectedSeasons">
+                        Seasons
+                    </p>
+
+                </div>
+
+
+                <!-- INDICES -->
+
+                <div class="index-section">
+
+                    <p class="panel-label">
+                        PERFORMANCE INDICES
+                    </p>
+
+
+                    <!-- BATTING INDEX -->
+
+                    <div class="index-card">
+
+                        <div class="index-info">
+
+                            <span>
+                                Batting Index
+                            </span>
+
+                            <strong id="battingIndex">
+                                82
+                            </strong>
+
+                        </div>
+
+                        <div class="index-bar">
+
+                            <div
+                                class="index-fill"
+                                style="width: 82%;"
+                            >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOWLING INDEX -->
+
+                    <div class="index-card">
+
+                        <div class="index-info">
+
+                            <span>
+                                Bowling Index
+                            </span>
+
+                            <strong id="bowlingIndex">
+                                46
+                            </strong>
+
+                        </div>
+
+                        <div class="index-bar">
+
+                            <div
+                                class="index-fill"
+                                style="width: 46%;"
+                            >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PERFORMANCE RATING -->
+
+                <div class="rating-section">
+
+                    <p class="panel-label">
+                        PERFORMANCE RATING
+                    </p>
+
+                    <div
+                        id="performanceStars"
+                        class="stars"
+                    >
+                        ☆ ☆ ☆ ☆ ☆
+                    </div>
+
+                    <p
+                        id="performanceRating"
+                        class="rating-text"
+                    >
+                        N/A
+                    </p>
+
+                </div>
+
+
+            </aside>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="analytics-area">
+
+
+                <!-- TOP CHART GRID -->
+
+                <div class="chart-grid">
+
+
+                    <!-- PROGRESSION CHART -->
+
+                    <section class="report-card progression-card">
+
+                        <div class="card-header">
+
+
+                            <!-- PROGRESSION TOGGLE -->
+
+                            <div class="progression-toggle">
+
+                                <button
+                                    id="battingProgressionButton"
+                                    class="progression-toggle-button active"
+                                >
+                                    Batting
+                                </button>
+
+                                <button
+                                    id="bowlingProgressionButton"
+                                    class="progression-toggle-button"
+                                >
+                                    Bowling
+                                </button>
+
+                            </div>
+
+
+                            <div>
+
+                                <p class="card-label">
+                                    PERFORMANCE
+                                </p>
+
+                                <h2>
+                                    Match-by-Match Performance
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart-container">
+
+                            <canvas id="seasonProgressionChart">
+                            </canvas>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- PERFORMANCE PROFILE -->
+
+                    <section class="report-card profile-card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <p class="card-label">
+                                    PLAYER PROFILE
+                                </p>
+
+                                <h2>
+                                    Performance Profile
+                                </h2>
+
+                            </div>
+
+
+                            <!-- PROFILE TOGGLE -->
+
+                            <div class="profile-toggle">
+
+                                <button
+                                    id="battingProfileButton"
+                                    class="profile-toggle-button active"
+                                >
+                                    Batting
+                                </button>
+
+                                <button
+                                    id="bowlingProfileButton"
+                                    class="profile-toggle-button"
+                                >
+                                    Bowling
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- RADAR CHART -->
+
+                        <div class="profile-chart-container">
+
+                            <canvas id="performanceProfileChart">
+                            </canvas>
+
+                        </div>
+
+                    </section>
+
+
+                </div>
+
+
+                <!-- DETAILED STATISTICS -->
+
+                <section class="report-card detailed-statistics-card">
+
+                    <div class="detailed-statistics-header">
+
+                        <div>
+
+                            <p class="card-label">
+                                PERFORMANCE DATA
+                            </p>
+
+                            <h2>
+                                Detailed Statistics
+                            </h2>
+
+                        </div>
+
+
+                        <button
+                            id="viewDetailedStatisticsButton"
+                            class="view-statistics-button"
+                        >
+                            View Detailed Statistics →
+                        </button>
+
+                    </div>
+
+
+                    <!-- COLLAPSIBLE CONTENT -->
+
+                    <div
+                        id="detailedStatisticsContent"
+                        class="detailed-statistics-content hidden"
+                    >
+
+
+                        <!-- STATISTICS TOOLBAR -->
+
+                        <div class="statistics-toolbar">
+
+
+                            <!-- STATISTICS TOGGLE -->
+
+                            <div class="statistics-toggle">
+
+                                <button
+                                    id="battingStatisticsButton"
+                                    class="statistics-toggle-button active"
+                                >
+                                    Batting
+                                </button>
+
+                                <button
+                                    id="bowlingStatisticsButton"
+                                    class="statistics-toggle-button"
+                                >
+                                    Bowling
+                                </button>
+
+                            </div>
+
+
+                            <!-- QUALIFICATION BUTTON -->
+
+                            <button
+                                id="viewQualificationCriteriaButton"
+                                class="qualification-button"
+                            >
+                                View Qualification Criteria
+                            </button>
+
+
+                        </div>
+
+
+                        <!-- QUALIFICATION NOTICE -->
+
+                        <div
+                            id="qualificationNotice"
+                            class="qualification-notice hidden"
+                        >
+
+                            <strong>
+                                Qualification Notice
+                            </strong>
+
+                            <p id="qualificationNoticeText">
+
+                                Some selected seasons did not meet
+                                the qualification criteria.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- UNAVAILABLE MESSAGE -->
+
+                        <div
+                            id="statisticsUnavailable"
+                            class="statistics-unavailable hidden"
+                        >
+
+                            <p id="statisticsUnavailableText">
+
+                                Insufficient qualifying data for
+                                the selected period.
+
+                            </p>
+
+                        </div>
+
+
+                        <!-- STATISTICS TABLE -->
+
+                        <div
+                            id="statisticsTableContainer"
+                            class="statistics-table-container"
+                        >
+
+                            <table class="statistics-table">
+
+                                <thead id="statisticsTableHead">
+                                </thead>
+
+                                <tbody id="statisticsTableBody">
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </div>
+            <!-- END ANALYTICS AREA -->
+
+
+        </section>
+        <!-- END REPORT GRID -->
+
+
+    </main>
+
+
+    <!-- QUALIFICATION CRITERIA MODAL -->
+
+    <div
+        id="qualificationModal"
+        class="qualification-modal hidden"
+    >
+
+        <div class="qualification-modal-content">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="qualification-modal-header">
+
+                <div>
+
+                    <p class="card-label">
+                        METHODOLOGY
+                    </p>
+
+                    <h2>
+                        Qualification Criteria
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="closeQualificationModal"
+                    class="qualification-modal-close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <!-- MODAL BODY -->
+
+            <div class="qualification-modal-body">
+
+
+                <!-- BATTING CRITERIA -->
+
+                <section class="criteria-section">
+
+                    <h3>
+                        Batting Qualification
+                    </h3>
+
+                    <p>
+
+                        A player must meet the minimum batting
+                        participation requirements for a season
+                        to be included in batting analysis.
+
+                    </p>
+
+
+                    <div class="criteria-list">
+
+                        <div class="criteria-item">
+
+                            <strong>
+                                Minimum Innings
+                            </strong>
+
+                            <span>
+                                7 innings
+                            </span>
+
+                        </div>
+
+
+                        <div class="criteria-item">
+
+                            <strong>
+                                Minimum Balls Faced
+                            </strong>
+
+                            <span>
+                                120 balls
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- BOWLING CRITERIA -->
+
+                <section class="criteria-section">
+
+                    <h3>
+                        Bowling Qualification
+                    </h3>
+
+                    <p>
+
+                        A player must meet the minimum bowling
+                        participation requirements for a season
+                        to be included in bowling analysis.
+
+                    </p>
+
+
+                    <div class="criteria-list">
+
+                        <div class="criteria-item">
+
+                            <strong>
+                                Minimum Innings
+                            </strong>
+
+                            <span>
+                                7 innings
+                            </span>
+
+                        </div>
+
+
+                        <div class="criteria-item">
+
+                            <strong>
+                                Minimum Balls Bowled
+                            </strong>
+
+                            <span>
+                                120 balls
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- EXPLANATION -->
+
+                <section class="criteria-explanation">
+
+                    <h3>
+                        Why are qualification criteria used?
+                    </h3>
+
+                    <p>
+
+                        Minimum participation requirements prevent
+                        players with very small sample sizes from
+                        receiving misleading performance scores.
+                        Only qualifying seasons are included in
+                        performance indices, charts, profiles,
+                        and detailed statistical analysis.
+
+                    </p>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHART.JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <!-- REPORT JAVASCRIPT -->
+
+    <script
+        src="{{ url_for('static', filename='js/report.js') }}"
+    ></script>
+
+
+</body>
+
+</html>

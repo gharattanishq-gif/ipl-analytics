@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Season Dashboard | IPL Analytics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/team_single_dashboard.css') }}">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="brand">IPL Analytics</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/player">Player Analysis</a>
+                <a href="/compare">Player Comparison</a>
+                <a href="/team" class="active" aria-current="page">Team Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="dashboard-header">
+        <div class="header-content">
+            <div class="header-copy">
+                <p class="eyebrow">IPL TEAM ANALYTICS</p>
+                <h1 id="team-name">Team Season Analysis</h1>
+                <p class="header-subtitle">A closer look at the team's performance and leading contributors.</p>
+                <div class="season-chip"><span class="season-chip-dot"></span><p id="season-name">Season</p></div>
+            </div>
+            <div class="header-actions">
+                <a class="back-to-teams" href="/team" aria-label="Back to team selection">
+                    <span aria-hidden="true">←</span> Choose Another Team
+                </a>
+                <div class="season-context" aria-hidden="true">
+                    <span class="context-label">ANALYSIS VIEW</span>
+                    <strong>Single Season</strong>
+                    <span class="context-subtitle">Team performance report</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section id="summary-section" class="dashboard-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">OVERVIEW</span>
+                    <h2>Season at a Glance</h2>
+                    <p>The key numbers behind the team's campaign.</p>
+                </div>
+            </div>
+            <div class="summary-grid">
+                <article class="summary-card">
+                    <span class="summary-label">Matches</span>
+                    <p id="matches-played" class="summary-value">—</p>
+                    <span class="summary-footnote">Played</span>
+                </article>
+                <article class="summary-card summary-card-wins">
+                    <span class="summary-label">Wins</span>
+                    <p id="wins" class="summary-value">—</p>
+                    <span class="summary-footnote">Victories</span>
+                </article>
+                <article class="summary-card summary-card-losses">
+                    <span class="summary-label">Losses</span>
+                    <p id="losses" class="summary-value">—</p>
+                    <span class="summary-footnote">Defeats</span>
+                </article>
+                <article class="summary-card summary-card-winrate">
+                    <span class="summary-label">Win %</span>
+                    <p id="win-percentage" class="summary-value">—</p>
+                    <span class="summary-footnote">Win rate</span>
+                </article>
+                <article class="summary-card summary-card-batting">
+                    <span class="summary-label">Total Runs</span>
+                    <p id="total-runs" class="summary-value">—</p>
+                    <span class="summary-footnote">Team batting output</span>
+                </article>
+                <article class="summary-card summary-card-bowling">
+                    <span class="summary-label">Total Wickets</span>
+                    <p id="total-wickets" class="summary-value">—</p>
+                    <span class="summary-footnote">Wickets taken</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="batting-section" class="dashboard-section department-section batting-section">
+            <div class="section-heading section-heading-row">
+                <div>
+                    <span class="section-kicker">BATTING UNIT</span>
+                    <h2>Top 5 Batting Contributors</h2>
+                    <p>The players who drove the team's run scoring.</p>
+                </div>
+                <div class="legend" aria-label="Batting index rating legend">
+                    <span class="legend-item elite"><i></i>Elite (90+)</span>
+                    <span class="legend-item excellent"><i></i>Excellent (80–89)</span>
+                    <span class="legend-item very-good"><i></i>Very Good (70–79)</span>
+                </div>
+            </div>
+            <div id="batting-cards" class="player-card-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="bowling-section" class="dashboard-section department-section bowling-section">
+            <div class="section-heading section-heading-row">
+                <div>
+                    <span class="section-kicker">BOWLING UNIT</span>
+                    <h2>Top 5 Bowling Contributors</h2>
+                    <p>The bowlers who made the biggest impact.</p>
+                </div>
+                <div class="legend" aria-label="Bowling index rating legend">
+                    <span class="legend-item elite"><i></i>Elite (90+)</span>
+                    <span class="legend-item excellent"><i></i>Excellent (80–89)</span>
+                    <span class="legend-item very-good"><i></i>Very Good (70–79)</span>
+                </div>
+            </div>
+            <div id="bowling-cards" class="player-card-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="dependency-section" class="dashboard-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">DEPARTMENT PROFILE</span>
+                    <h2>Batting vs Bowling Strength</h2>
+                    <p>How the team's two departments compare with the rest of the league.</p>
+                </div>
+            </div>
+            <div id="dependency-content" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer class="dashboard-footer">
+        <span>IPL Analytics</span>
+        <span>Team season report</span>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/team_single_dashboard.js') }}"></script>
+</body>
+</html>

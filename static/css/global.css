@@ -1,0 +1,628 @@
+/* ==========================================================
+   IPL ANALYTICS — GLOBAL VISUAL SYSTEM
+   Shared visual rules loaded AFTER page stylesheets.
+
+   DESIGN RULE:
+   - Player Analysis, Player Comparison and Team Analysis use
+     ONE consistent dark surface colour.
+   - No teal/orange/purple/etc. structural boxes.
+   - Blue/pink are reserved for batting/bowling data visuals.
+   - Home page remains light.
+========================================================== */
+
+:root {
+    /* One dark surface for the analytical pages */
+    --global-dark: #0d1117;
+    --global-dark-border: #303a46;
+
+    --global-bg-light:  #0d1117;
+    --global-text-dark: #f5f7fa;
+    --global-text-soft: #c3ccd7;
+    --global-text-muted: #8f9baa;
+
+    /* Data/semantic accents only — NOT structural surfaces */
+    --global-blue: #3b82f6;
+    --global-blue-soft: #60a5fa;
+    --global-pink: #ec4899;
+    --global-pink-soft: #f472b6;
+    --global-green: #34d399;
+    --global-amber: #f59e0b;
+}
+
+/* ==========================================================
+   LIGHT DEFAULT
+   Keeps the Home page light.
+========================================================== */
+
+html,
+body {
+    background: var(--global-bg-dark) !important;
+    color: #111827 !important;
+}
+
+body {
+    margin: 0;
+}
+
+/* ==========================================================
+   DARK ANALYTICS PAGES
+
+   These selectors deliberately target the actual page roots,
+   so the Home page is not accidentally turned dark.
+========================================================== */
+
+body:has(.main-container),
+body:has(.team-container),
+body:has(.dashboard-container),
+body:has(.report-container) {
+    background: var(--global-dark) !important;
+    color: var(--global-text-dark) !important;
+}
+
+/* ==========================================================
+   GLOBAL TEXT — ANALYTICS PAGES
+========================================================== */
+
+body:has(.main-container) *,
+body:has(.team-container) *,
+body:has(.dashboard-container) *,
+body:has(.report-container) * {
+    box-sizing: border-box;
+}
+
+body:has(.main-container) p,
+body:has(.main-container) li,
+body:has(.main-container) span,
+body:has(.main-container) small,
+body:has(.main-container) label,
+body:has(.team-container) p,
+body:has(.team-container) li,
+body:has(.team-container) span,
+body:has(.team-container) small,
+body:has(.team-container) label,
+body:has(.dashboard-container) p,
+body:has(.dashboard-container) li,
+body:has(.dashboard-container) span,
+body:has(.dashboard-container) small,
+body:has(.dashboard-container) label,
+body:has(.report-container) p,
+body:has(.report-container) li,
+body:has(.report-container) span,
+body:has(.report-container) small,
+body:has(.report-container) label {
+    color: var(--global-text-soft) !important;
+}
+
+body:has(.main-container) h1,
+body:has(.main-container) h2,
+body:has(.main-container) h3,
+body:has(.main-container) h4,
+body:has(.main-container) h5,
+body:has(.main-container) h6,
+body:has(.main-container) strong,
+body:has(.main-container) b,
+body:has(.team-container) h1,
+body:has(.team-container) h2,
+body:has(.team-container) h3,
+body:has(.team-container) h4,
+body:has(.team-container) h5,
+body:has(.team-container) h6,
+body:has(.team-container) strong,
+body:has(.team-container) b,
+body:has(.dashboard-container) h1,
+body:has(.dashboard-container) h2,
+body:has(.dashboard-container) h3,
+body:has(.dashboard-container) h4,
+body:has(.dashboard-container) h5,
+body:has(.dashboard-container) h6,
+body:has(.dashboard-container) strong,
+body:has(.dashboard-container) b,
+body:has(.report-container) h1,
+body:has(.report-container) h2,
+body:has(.report-container) h3,
+body:has(.report-container) h4,
+body:has(.report-container) h5,
+body:has(.report-container) h6,
+body:has(.report-container) strong,
+body:has(.report-container) b {
+    color: var(--global-text-dark) !important;
+}
+
+/* ==========================================================
+   MASTER NAVBAR
+   Same dark surface as the rest of the analytical pages.
+========================================================== */
+
+body:has(.main-container) .navbar,
+body:has(.team-container) .navbar,
+body:has(.dashboard-container) .navbar,
+body:has(.report-container) .navbar {
+    height: 72px !important;
+    background: var(--global-dark) !important;
+    border-bottom: 1px solid var(--global-dark-border) !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+.nav-container {
+    max-width: 1280px !important;
+    height: 100% !important;
+    margin: auto !important;
+    padding: 0 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+}
+
+body:has(.main-container) .brand,
+body:has(.team-container) .brand,
+body:has(.dashboard-container) .brand,
+body:has(.report-container) .brand,
+body:has(.main-container) .logo,
+body:has(.team-container) .logo,
+body:has(.dashboard-container) .logo,
+body:has(.report-container) .logo {
+    color: var(--global-text-dark) !important;
+}
+
+.nav-links {
+    display: flex !important;
+    align-items: center !important;
+    gap: 34px !important;
+}
+
+body:has(.main-container) .nav-links a,
+body:has(.team-container) .nav-links a,
+body:has(.dashboard-container) .nav-links a,
+body:has(.report-container) .nav-links a {
+    color: var(--global-text-dark) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+body:has(.main-container) .nav-links a:hover,
+body:has(.main-container) .nav-links a.active,
+body:has(.team-container) .nav-links a:hover,
+body:has(.team-container) .nav-links a.active,
+body:has(.dashboard-container) .nav-links a:hover,
+body:has(.dashboard-container) .nav-links a.active,
+body:has(.report-container) .nav-links a:hover,
+body:has(.report-container) .nav-links a.active {
+    color: var(--global-blue-soft) !important;
+}
+
+/* ==========================================================
+   ONE DARK SURFACE — STRUCTURAL COMPONENTS
+
+   Every listed card/panel intentionally receives EXACTLY the
+   same background. This removes the "different coloured box"
+   effect caused by page-specific CSS fighting the global file.
+========================================================== */
+
+body:has(.main-container) .main-container,
+body:has(.main-container) .hero,
+body:has(.main-container) .comparison-card,
+body:has(.main-container) .player-selection,
+body:has(.main-container) .comparison-content,
+body:has(.main-container) .comparison-type-option,
+body:has(.main-container) .selection-modal-content,
+body:has(.main-container) .selection-modal,
+body:has(.main-container) .season-selection-panel,
+body:has(.main-container) .season-player-panel,
+body:has(.main-container) .player-a,
+body:has(.main-container) .player-b,
+body:has(.main-container) .player-a-selection,
+body:has(.main-container) .player-b-selection,
+body:has(.main-container) .player-a-card,
+body:has(.main-container) .player-b-card,
+body:has(.main-container) .player-a-section,
+body:has(.main-container) .player-b-section,
+body:has(.team-container) .team-container,
+body:has(.team-container) .hero,
+body:has(.team-container) .team-selection,
+body:has(.dashboard-container) .dashboard-container,
+body:has(.dashboard-container) .dashboard-section,
+body:has(.dashboard-container) .summary-card,
+body:has(.dashboard-container) .player-card,
+body:has(.dashboard-container) .player-card-grid,
+body:has(.dashboard-container) .chart-card,
+body:has(.dashboard-container) .trend-card,
+body:has(.dashboard-container) .table-card,
+body:has(.dashboard-container) .metric-card,
+body:has(.dashboard-container) .panel,
+body:has(.dashboard-container) .card,
+body:has(.dashboard-container) .department-card,
+body:has(.dashboard-container) .dependency-card,
+body:has(.dashboard-container) .timeline-card,
+body:has(.dashboard-container) .dashboard-header,
+body:has(.report-container) .report-container,
+body:has(.report-container) .report-card,
+body:has(.report-container) .card,
+body:has(.report-container) .panel {
+    background: var(--global-dark) !important;
+    color: var(--global-text-dark) !important;
+    border-color: var(--global-dark-border) !important;
+}
+
+/* Page roots should not create an inner second-dark rectangle. */
+body:has(.main-container) .main-container,
+body:has(.team-container) .team-container,
+body:has(.dashboard-container) .dashboard-container,
+body:has(.report-container) .report-container {
+    box-shadow: none !important;
+}
+
+/* ==========================================================
+   INPUTS / SELECTS / SEARCH RESULTS
+========================================================== */
+
+body:has(.main-container) input,
+body:has(.main-container) select,
+body:has(.main-container) textarea,
+body:has(.team-container) input,
+body:has(.team-container) select,
+body:has(.team-container) textarea,
+body:has(.dashboard-container) input,
+body:has(.dashboard-container) select,
+body:has(.dashboard-container) textarea,
+body:has(.report-container) input,
+body:has(.report-container) select,
+body:has(.report-container) textarea {
+    background: var(--global-dark) !important;
+    color: var(--global-text-dark) !important;
+    border-color: var(--global-dark-border) !important;
+}
+
+::placeholder {
+    color: var(--global-text-muted) !important;
+    opacity: 1 !important;
+}
+
+body:has(.main-container) .search-results,
+body:has(.team-container) .search-results,
+body:has(.dashboard-container) .search-results,
+body:has(.report-container) .search-results {
+    background: var(--global-dark) !important;
+    border-color: var(--global-dark-border) !important;
+}
+
+body:has(.main-container) .search-result:hover,
+body:has(.team-container) .search-result:hover {
+    background: #20262f !important;
+}
+
+/* ==========================================================
+   BUTTONS
+
+   Structural buttons stay dark. Primary action buttons may
+   use blue because they are actions, not page surfaces.
+========================================================== */
+
+body:has(.main-container) button,
+body:has(.team-container) button,
+body:has(.dashboard-container) button,
+body:has(.report-container) button,
+body:has(.main-container) .btn,
+body:has(.team-container) .btn,
+body:has(.dashboard-container) .btn,
+body:has(.report-container) .btn,
+body:has(.main-container) .button,
+body:has(.team-container) .button,
+body:has(.dashboard-container) .button,
+body:has(.report-container) .button,
+body:has(.main-container) .secondary-btn,
+body:has(.team-container) .secondary-btn,
+body:has(.dashboard-container) .secondary-btn,
+body:has(.report-container) .secondary-btn {
+    background: var(--global-dark) !important;
+    color: var(--global-text-dark) !important;
+    border-color: var(--global-dark-border) !important;
+}
+
+body:has(.main-container) button:hover,
+body:has(.team-container) button:hover,
+body:has(.dashboard-container) button:hover,
+body:has(.report-container) button:hover,
+body:has(.main-container) .btn:hover,
+body:has(.team-container) .btn:hover,
+body:has(.dashboard-container) .btn:hover,
+body:has(.report-container) .btn:hover,
+body:has(.main-container) .button:hover,
+body:has(.team-container) .button:hover,
+body:has(.dashboard-container) .button:hover,
+body:has(.report-container) .button:hover {
+    background: #20262f !important;
+}
+
+body:has(.main-container) .primary-btn,
+body:has(.main-container) .primary-button,
+body:has(.main-container) .generate-report,
+body:has(.main-container) #generateReport,
+body:has(.main-container) #confirmSeasonSelection {
+    background: var(--global-blue) !important;
+    border-color: var(--global-blue) !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================
+   PLAYER COMPARISON — NO COLOURED PLAYER BOXES
+
+   Player A and Player B are distinguished by labels/data only.
+   Their structural containers remain the SAME dark colour.
+========================================================== */
+
+.player-a,
+.player-b,
+.player-a-selection,
+.player-b-selection,
+.player-a-season-panel,
+.player-b-season-panel,
+.player-a-card,
+.player-b-card,
+.player-a-section,
+.player-b-section,
+.player-a-selection.selected,
+.player-b-selection.selected {
+    background: var(--global-dark) !important;
+    border-color: var(--global-dark-border) !important;
+    box-shadow: none !important;
+}
+
+.player-a-selection label,
+.player-b-selection label,
+.player-a-label,
+.player-b-label,
+.player-a .label,
+.player-b .label,
+.player-a-season-panel .season-player-label,
+.player-b-season-panel .season-player-label {
+    color: var(--global-text-soft) !important;
+}
+
+.player-a-selection input:focus,
+.player-b-selection input:focus,
+.player-a-selection:focus-within,
+.player-b-selection:focus-within {
+    border-color: var(--global-dark-border) !important;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.06) !important;
+}
+
+/* Selected season buttons also stay neutral. */
+.player-a-season-panel .season-button.selected,
+.player-b-season-panel .season-button.selected,
+.player-a-season-panel .season-button.active,
+.player-b-season-panel .season-button.active {
+    background: #20262f !important;
+    border-color: #526071 !important;
+    color: var(--global-text-dark) !important;
+}
+
+/* Remove comparison-type coloured structural fills. */
+.comparison-type-option,
+.batting-type-option.selected,
+.bowling-type-option.selected,
+.both-type-option.selected {
+    background: var(--global-dark) !important;
+    border-color: var(--global-dark-border) !important;
+    color: var(--global-text-dark) !important;
+}
+
+/* ==========================================================
+   BATTING / BOWLING COLOURS
+
+   These are intentionally limited to data visuals. They do
+   NOT colour cards, panels or page backgrounds.
+========================================================== */
+
+.batting-bar,
+.batting-fill,
+.batting-dot,
+#strength-chart .batting-bar,
+#strength-chart .batting-dot,
+#batting-dependency-chart .dependency-fill {
+    background: var(--global-blue) !important;
+}
+
+.bowling-bar,
+.bowling-fill,
+.bowling-dot,
+#strength-chart .bowling-bar,
+#strength-chart .bowling-dot,
+#bowling-dependency-chart .dependency-fill {
+    background: var(--global-pink) !important;
+}
+
+.batting,
+.batting-accent,
+.batting-label,
+.batting-title {
+    color: var(--global-blue-soft) !important;
+}
+
+.bowling,
+.bowling-accent,
+.bowling-label,
+.bowling-title {
+    color: var(--global-pink-soft) !important;
+}
+
+/* ==========================================================
+   GENERIC TABLES / DATA AREAS
+========================================================== */
+
+body:has(.main-container) table,
+body:has(.team-container) table,
+body:has(.dashboard-container) table,
+body:has(.report-container) table,
+body:has(.main-container) thead,
+body:has(.team-container) thead,
+body:has(.dashboard-container) thead,
+body:has(.report-container) thead,
+body:has(.main-container) tbody,
+body:has(.team-container) tbody,
+body:has(.dashboard-container) tbody,
+body:has(.report-container) tbody {
+    background: var(--global-dark) !important;
+    color: var(--global-text-soft) !important;
+}
+
+body:has(.main-container) th,
+body:has(.team-container) th,
+body:has(.dashboard-container) th,
+body:has(.report-container) th {
+    color: var(--global-text-dark) !important;
+    border-color: var(--global-dark-border) !important;
+}
+
+body:has(.main-container) td,
+body:has(.team-container) td,
+body:has(.dashboard-container) td,
+body:has(.report-container) td {
+    color: var(--global-text-soft) !important;
+    border-color: var(--global-dark-border) !important;
+}
+
+/* ==========================================================
+   MODALS / OVERLAYS
+========================================================== */
+
+body:has(.main-container) .modal,
+body:has(.main-container) .modal-overlay,
+body:has(.main-container) .modal-backdrop,
+body:has(.main-container) .overlay,
+body:has(.team-container) .modal,
+body:has(.team-container) .modal-overlay,
+body:has(.team-container) .modal-backdrop,
+body:has(.team-container) .overlay {
+    background-color: rgba(0,0,0,0.72) !important;
+}
+
+body:has(.main-container) .modal-content,
+body:has(.main-container) .modal-container,
+body:has(.main-container) .dialog,
+body:has(.team-container) .modal-content,
+body:has(.team-container) .modal-container,
+body:has(.team-container) .dialog {
+    background: var(--global-dark) !important;
+    color: var(--global-text-dark) !important;
+    border: 1px solid var(--global-dark-border) !important;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45) !important;
+}
+
+/* ==========================================================
+   DIVIDERS / BORDERS
+========================================================== */
+
+body:has(.main-container) hr,
+body:has(.team-container) hr,
+body:has(.dashboard-container) hr,
+body:has(.report-container) hr,
+body:has(.main-container) .divider,
+body:has(.team-container) .divider,
+body:has(.dashboard-container) .divider,
+body:has(.report-container) .divider,
+body:has(.main-container) .section-divider,
+body:has(.team-container) .section-divider,
+body:has(.dashboard-container) .section-divider,
+body:has(.report-container) .section-divider,
+body:has(.main-container) .header-divider,
+body:has(.team-container) .header-divider,
+body:has(.dashboard-container) .header-divider,
+body:has(.report-container) .header-divider {
+    border-color: var(--global-dark-border) !important;
+    background-color: var(--global-dark-border) !important;
+}
+
+/* ==========================================================
+   STATUS TEXT
+========================================================== */
+
+.success,
+.positive,
+.positive-change {
+    color: var(--global-green) !important;
+}
+
+.warning,
+.warning-text,
+.qualification-notice {
+    color: var(--global-amber) !important;
+}
+
+/* ==========================================================
+   SCROLLBARS
+========================================================== */
+
+body:has(.main-container) *,
+body:has(.team-container) *,
+body:has(.dashboard-container) *,
+body:has(.report-container) * {
+    scrollbar-color: #3b4653 var(--global-dark);
+    scrollbar-width: thin;
+}
+
+body:has(.main-container) *::-webkit-scrollbar,
+body:has(.team-container) *::-webkit-scrollbar,
+body:has(.dashboard-container) *::-webkit-scrollbar,
+body:has(.report-container) *::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+body:has(.main-container) *::-webkit-scrollbar-track,
+body:has(.team-container) *::-webkit-scrollbar-track,
+body:has(.dashboard-container) *::-webkit-scrollbar-track,
+body:has(.report-container) *::-webkit-scrollbar-track {
+    background: var(--global-dark);
+}
+
+body:has(.main-container) *::-webkit-scrollbar-thumb,
+body:has(.team-container) *::-webkit-scrollbar-thumb,
+body:has(.dashboard-container) *::-webkit-scrollbar-thumb,
+body:has(.report-container) *::-webkit-scrollbar-thumb {
+    background: #3b4653;
+    border-radius: 10px;
+}
+
+body:has(.main-container) *::-webkit-scrollbar-thumb:hover,
+body:has(.team-container) *::-webkit-scrollbar-thumb:hover,
+body:has(.dashboard-container) *::-webkit-scrollbar-thumb:hover,
+body:has(.report-container) *::-webkit-scrollbar-thumb:hover {
+    background: #526071;
+}
+
+/* ==========================================================
+   RESPONSIVE NAVBAR
+========================================================== */
+
+@media (max-width: 760px) {
+    .nav-container {
+        padding: 0 20px !important;
+    }
+
+    .nav-links {
+        gap: 18px !important;
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        height: auto !important;
+        min-height: 72px !important;
+    }
+
+    .nav-container {
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        padding: 14px 20px !important;
+    }
+
+    .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+}

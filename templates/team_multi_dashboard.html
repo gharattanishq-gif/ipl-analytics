@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Team Multi-Season Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for(
+            'static',
+            filename='css/team_multi_dashboard.css'
+        ) }}"
+    >
+
+</head>
+
+
+<body>
+
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="brand">
+            IPL Analytics
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/player">Player Analysis</a>
+            <a href="/compare">Player Comparison</a>
+            <a href="/team" class="active">Team Analysis</a>
+        </div>
+    </div>
+</nav>
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="header-content">
+
+            <div>
+
+                <p class="eyebrow">
+                    IPL TEAM ANALYTICS
+                </p>
+
+                <h1 id="team-name">
+                    Team Multi-Season Analysis
+                </h1>
+
+                <p class="header-subtitle">
+                    How has the team's performance evolved
+                    across seasons?
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+                <a class="back-to-teams" href="/team" aria-label="Back to team selection">
+                    <span aria-hidden="true">←</span> Choose Anothe Team
+                </a>
+
+                <!-- SEASON RANGE CONTROL -->
+                <div class="season-control">
+                    <label for="season-range">Selected Period</label>
+                    <select id="season-range">
+                        <option value="selected" selected>Selected Seasons</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard-container">
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        OVERVIEW
+                    </span>
+
+                    <h2>
+                        Multi-Season Overview
+                    </h2>
+
+                    <p>
+                        A consolidated view of the team's
+                        performance across the selected period.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="overview-grid"
+                class="overview-grid"
+            >
+
+                <!-- Populated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TEAM EVOLUTION
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        TEAM EVOLUTION
+                    </span>
+
+                    <h2>
+                        Batting & Bowling Strength
+                    </h2>
+
+                    <p>
+                        How the team's two departments have
+                        changed across seasons.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <div>
+
+                        <h3>
+                            Department Strength Trend
+                        </h3>
+
+                        <p>
+                            League-relative strength score
+                            across each season.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="strength-chart"
+                    class="chart-area"
+                >
+
+                    <!-- Chart populated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DEPARTMENT EVOLUTION
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        DEPARTMENT PROFILE
+                    </span>
+
+                    <h2>
+                        How the Team's Identity Changed
+                    </h2>
+
+                    <p>
+                        Season-by-season classification of the
+                        team's batting and bowling balance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="department-timeline"
+                class="department-timeline"
+            >
+
+                <!-- Populated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DEPENDENCY
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        DEPENDENCY
+                    </span>
+
+                    <h2>
+                        Batting vs Bowling Dependency
+                    </h2>
+
+                    <p>
+                        How concentrated the team's output was
+                        among its leading contributors.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="dependency-grid">
+
+                <div class="trend-card">
+
+                    <div class="trend-card-header">
+
+                        <h3>
+                            Batting Dependency
+                        </h3>
+
+                        <span class="metric-label">
+                            Top 3 Contributors
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="batting-dependency-chart"
+                        class="mini-chart"
+                    >
+
+                        <!-- Populated by JavaScript -->
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="trend-card">
+
+                    <div class="trend-card-header">
+
+                        <h3>
+                            Bowling Dependency
+                        </h3>
+
+                        <span class="metric-label">
+                            Top 3 Contributors
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="bowling-dependency-chart"
+                        class="mini-chart"
+                    >
+
+                        <!-- Populated by JavaScript -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEASON-BY-SEASON TABLE
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        SEASON BREAKDOWN
+                    </span>
+
+                    <h2>
+                        Season-by-Season Record
+                    </h2>
+
+                    <p>
+                        Detailed comparison of the selected
+                        seasons.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Season
+                                </th>
+
+                                <th>
+                                    Matches
+                                </th>
+
+                                <th>
+                                    Wins
+                                </th>
+
+                                <th>
+                                    Losses
+                                </th>
+
+                                <th>
+                                    Win %
+                                </th>
+
+                                <th>
+                                    Runs
+                                </th>
+
+                                <th>
+                                    Wickets
+                                </th>
+
+                                <th>
+                                    Batting Dependency
+                                </th>
+
+                                <th>
+                                    Bowling Dependency
+                                </th>
+
+                                <th>
+                                    Profile
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="season-table-body">
+
+                            <!-- Populated by JavaScript -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INSIGHTS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        ANALYTICAL SUMMARY
+                    </span>
+
+                    <h2>
+                        Team Evolution Insights
+                    </h2>
+
+                    <p>
+                        Key changes identified from the selected
+                        seasons.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="evolution-insights"
+                class="insights-grid"
+            >
+
+                <!-- Populated by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         LOADING STATE
+    ====================================================== -->
+
+    <div
+        id="loading-state"
+        class="loading-state"
+    >
+
+        <div class="loader"></div>
+
+        <p>
+            Loading team analysis...
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ERROR STATE
+    ====================================================== -->
+
+    <div
+        id="error-state"
+        class="error-state"
+        style="display: none;"
+    >
+
+        <h2>
+            Unable to load dashboard
+        </h2>
+
+        <p id="error-message">
+            Something went wrong while loading the
+            team data.
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="{{ url_for(
+            'static',
+            filename='js/team_multi_dashboard.js'
+        ) }}"
+    ></script>
+
+
+</body>
+
+</html>

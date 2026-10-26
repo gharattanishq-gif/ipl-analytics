@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Player Comparison Report</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/comparison-report.css') }}"
+    >
+
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION
+    =========================================== -->
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand">IPL Analytics</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/player">Player Analysis</a>
+                <a href="/compare">Player Comparison</a>
+                <a href="/team">Team Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    =========================================== -->
+
+    <main class="comparison-report-page">
+
+
+        <!-- ==========================================
+             REPORT HEADER
+        =========================================== -->
+
+        <section class="report-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    HEAD-TO-HEAD ANALYTICS
+                </p>
+
+                <h1>
+                    Player Comparison
+                </h1>
+
+                <p class="report-description">
+                    Compare performance across the selected
+                    IPL seasons and statistical category.
+                </p>
+
+            </div>
+
+
+            <a
+                href="/compare"
+                class="new-comparison-button"
+            >
+                ← New Comparison
+            </a>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PLAYER IDENTITIES
+        =========================================== -->
+
+        <section class="player-comparison-header">
+
+
+            <!-- PLAYER A -->
+
+            <div class="comparison-player player-a">
+
+                <p class="player-label">
+                    PLAYER A
+                </p>
+
+                <h2 id="playerAName">
+                    Player A
+                </h2>
+
+                <p
+                    id="playerASeasonSummary"
+                    class="player-season-summary"
+                >
+                    Selected Seasons
+                </p>
+
+            </div>
+
+
+
+            <!-- VS -->
+
+            <div class="comparison-vs">
+
+                <span>
+                    VS
+                </span>
+
+            </div>
+
+
+
+            <!-- PLAYER B -->
+
+            <div class="comparison-player player-b">
+
+                <p class="player-label">
+                    PLAYER B
+                </p>
+
+                <h2 id="playerBName">
+                    Player B
+                </h2>
+
+                <p
+                    id="playerBSeasonSummary"
+                    class="player-season-summary"
+                >
+                    Selected Seasons
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==========================================
+             CATEGORY TOGGLE
+        =========================================== -->
+
+        <section
+            id="comparisonToggleSection"
+            class="comparison-toggle-section hidden"
+        >
+
+            <div class="comparison-toggle">
+
+                <button
+                    type="button"
+                    id="battingToggle"
+                    class="comparison-toggle-button batting-toggle active"
+                >
+                    Batting
+                </button>
+
+                <button
+                    type="button"
+                    id="bowlingToggle"
+                    class="comparison-toggle-button bowling-toggle"
+                >
+                    Bowling
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             COMPARISON CONTENT
+        =========================================== -->
+
+        <section class="comparison-content">
+
+
+            <!-- COMPARISON TITLE -->
+
+            <div class="comparison-content-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        PERFORMANCE COMPARISON
+                    </p>
+
+                    <h2 id="comparisonCategoryTitle">
+                        Batting Metrics
+                    </h2>
+
+                </div>
+
+                <p
+                    id="comparisonPeriodSummary"
+                    class="comparison-period-summary"
+                >
+                    Comparison Period
+                </p>
+
+            </div>
+
+
+
+            <!-- ==========================================
+                 THREE COLUMN TABLE HEADER
+            =========================================== -->
+
+            <div class="comparison-table">
+
+
+                <div class="comparison-table-header">
+
+                    <div
+                        id="tablePlayerAName"
+                        class="table-player-name player-a-table-name"
+                    >
+                        Player A
+                    </div>
+
+                    <div class="table-metric-heading">
+                        Point of Comparison
+                    </div>
+
+                    <div
+                        id="tablePlayerBName"
+                        class="table-player-name player-b-table-name"
+                    >
+                        Player B
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     DYNAMIC COMPARISON ROWS
+                =========================================== -->
+
+                <div id="comparisonRows">
+
+                    <!--
+
+                    comparison-report.js will generate
+                    the metric rows here.
+
+                    Example structure:
+
+                    <div class="comparison-row">
+
+                        <div class="player-value">
+                            52.40 ↑
+                        </div>
+
+                        <div class="metric-name">
+                            Batting Average
+                        </div>
+
+                        <div class="player-value">
+                            48.20
+                        </div>
+
+                    </div>
+
+                    -->
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==========================================
+             QUALIFICATION NOTICE
+        =========================================== -->
+
+        <section
+            id="qualificationNotice"
+            class="qualification-notice hidden"
+        >
+
+            <h3>
+                Qualification Notice
+            </h3>
+
+            <p id="qualificationNoticeText">
+                Some selected seasons did not meet the
+                minimum qualification criteria.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script
+        src="{{ url_for('static', filename='js/comparison-report.js') }}"
+    ></script>
+
+
+</body>
+
+</html>
